@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Navigation Menu</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(67, 66, 64); /* Changed color to orange */
+    padding: 10px 0;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+  }
+  .navbar a:hover {
+    color: #ffd700;
+  }
+  .content-section {
+    height:fit-content;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: none;
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="navbar" id="navbar">
+  <a href="#" onclick="toggleContent('home')">Home</a>
+  <a href="#" onclick="toggleContent('about')">About</a>
+  <a href="#" onclick="toggleContent('services')">Services</a>
+  <a href="#" onclick="toggleContent('contact')">Contact</a>
+</div>
+
+<div id="home" class="content-section" style="display: block; background-color: #ffc9cb; color: #f37c80; height: 800px;" >
+  <h2>Home Page Content</h2>
+  <p>This is the home page content.</p>
+</div>
+
+<div id="about" class="content-section" style="background-color: antiquewhite; color: rgb(237, 168, 78); height: 800px;">
+  <h2>About Page Content</h2>
+  <p>This is the about page content.</p>
+</div>
+
+<div id="services" class="content-section" style="background-color: rgb(182, 182, 253); color:rgb(85, 85, 250) ; height: 800px;">
+  <h2>Services Page Content</h2>
+  <p>This is the services page content.</p>
+</div>
+
+<div id="contact" class="content-section" style="background-color: rgb(188, 253, 253); color:rgb(12, 162, 162) ; height: 800px;">
+  <h2>Contact Page Content</h2>
+  <p>This is the contact page content.</p>
+</div>
+
+<script>
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+      document.getElementById("navbar").style.backgroundColor = "#111";
+    } else {
+      document.getElementById("navbar").style.backgroundColor = "333";
+    }
+  }
+
+  function toggleContent(sectionId) {
+    var sections = document.getElementsByClassName("content-section");
+    for (var i = 0; i < sections.length; i++) {
+      sections[i].style.display = "none";
+    }
+    document.getElementById(sectionId).style.display = "block";
+  }
+</script>
+
+</body>
+</html>
